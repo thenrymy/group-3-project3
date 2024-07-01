@@ -1,8 +1,7 @@
-# Crowdfunding_ETL (EXAMPLE)
+# Real Estate Valuation and Purchasing Factors in Perth Metro Area
 
-## Data Extraction, Transformation, and Loading (database)
-
-This project focuses on transforming crowdfunding data from Excel sheets into a structured PostgreSQL database. The transformation involves creating DataFrames for categories, subcategories, campaigns, and contacts, which are then exported to CSV files and loaded into a PostgreSQL database.
+## Overview
+Analyse and compare the factors influencing the valuation and purchase decisions of residential properties in Perth Metropolitan Area.
 
 ### Prerequisites
 
