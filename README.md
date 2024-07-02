@@ -3,6 +3,14 @@
 ## Overview
 Analyse and compare the factors influencing the valuation and purchase decisions of residential properties in Perth Metropolitan Area.
 
+## Datasets
+- Historical Property Prices https://www.kaggle.com/datasets/syuzai/perth-house-prices/data?select=all_perth_310121.csv
+- Suburb Localities https://catalogue.data.wa.gov.au/dataset/localities
+- LGA Localities https://catalogue.data.wa.gov.au/dataset/local-government-authority-lga-boundaries
+- Crime Statistics https://www.police.wa.gov.au/Crime/CrimeStatistics#/
+- Council Data https://mycouncil.wa.gov.au/Council/CompareAllCouncil
+- School Data https://catalogue.data.wa.gov.au/dataset/western-australian-schools-lists
+
 ### Prerequisites
 
 - Python installed on your local machine.
