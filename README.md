@@ -15,23 +15,25 @@ Analyse and compare the factors influencing the valuation and purchase decisions
 
 - Python installed on your local machine.
 - PostgreSQL database installed.
-- Required Python libraries: Pandas.
+- Required Python libraries: selenium, time, pandas, numpy
 
 ### Tools and Technologies
 
 - Pandas for data manipulation and transformation.
 - PostgreSQL for database management.
-- QuickDBD for creating ER diagrams.
+- Selenium for web scraping
+- Time for timer delay
+- Numpy for 0 to NaN convertion
 
 ### Installation
 
 1. Clone the repository.
-2. Install the required Python libraries:
+2. Install the required Python libraries.
 3. Ensure you have PostgreSQL installed and running on your system.
 
 ### Running the Scripts
 
-- To perform the data extraction and transformation, use 'ETL_Mini_Project_TRadadiya_ZLiang_YWong_FGirnary.ipynb' and run each cell.
+- To perform the data extraction and transformation for Perth Crime Statistics, use 'crime_statistics_scrape.ipynb' and run.
 - Load the CSV files into the PostgreSQL database using the provided SQL schema.
 
 ### File Structure
@@ -39,12 +41,10 @@ Analyse and compare the factors influencing the valuation and purchase decisions
 ```
 Crowdfunding_ETL/
 ├── Resources/
-│   ├── crowdfunding.xlsx
-│   ├── contacts.xlsx
-│   ├── category.csv
-│   ├── subcategory.csv
-│   ├── campaign.csv
-│   └── contacts.csv
+│   ├── all_perth_310121.csv
+│   ├── SchoolsListExcel0880.xlsx
+│   ├── suburb.xlsx
+│   └── suburb_crime/
 ├── Images/
 │   ├── crowdfunding_db_ERD.png
 │   ├── schema_snapshot.png
@@ -53,7 +53,6 @@ Crowdfunding_ETL/
 │   ├── sql_category_output.png
 │   ├── sql_contacts_output.png
 │   └── sql_subcategory_output.png
-├── ETL_Mini_Project_TRadadiya_ZLiang_YWong_FGirnary.ipynb
-├── crowdfunding_db_schema.sql
+├── crime_statistis_scrape.ipynb
 └── README.md
 ```
