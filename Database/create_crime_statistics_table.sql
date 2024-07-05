@@ -1,17 +1,22 @@
-DROP TABLE IF EXISTS crime_statistics;
+-- Table: public.crime_statistics
 
-CREATE TABLE crime_statistics (
-	suburb VARCHAR,
-	Year_2015 INT,
-	Year_2016 INT,
-	Year_2017 INT,
-	Year_2018 INT,
-	Year_2019 INT,		
-	Year_2020 INT,
-	Year_2021 INT,				
-	Year_2022 INT,	
-	Year_2023 INT
-		
-);
+-- DROP TABLE IF EXISTS public.crime_statistics;
 
-SELECT * FROM crime_statistics
+CREATE TABLE IF NOT EXISTS public.crime_statistics
+(
+    suburb character varying(30) COLLATE pg_catalog."default",
+    year_2015 integer,
+    year_2016 integer,
+    year_2017 integer,
+    year_2018 integer,
+    year_2019 integer,
+    year_2020 integer,
+    year_2021 integer,
+    year_2022 integer,
+    year_2023 integer
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.crime_statistics
+    OWNER to postgres;

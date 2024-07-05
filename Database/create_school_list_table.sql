@@ -1,20 +1,28 @@
-DROP TABLE IF EXISTS school_list;
+-- Table: public.school_list
 
-CREATE TABLE school_list (
-	code INT,
-	school_name VARCHAR,
-	street VARCHAR,
-	suburb VARCHAR,
-	State_ VARCHAR,
-	Postcode  INT,		
-	Postal_Street VARCHAR,
-	Postal_Suburb VARCHAR,				
-	Postal_State VARCHAR,	
-	Postal_Postcode	VARCHAR,
-	Latitude DEC,		
-	Longitude DEC,		
-	Phone VARCHAR,				
-	Education_region VARCHAR,	
-	Broad_Classification VARCHAR,			
-	Classification_Group VARCHAR		
-);
+-- DROP TABLE IF EXISTS public.school_list;
+
+CREATE TABLE IF NOT EXISTS public.school_list
+(
+    code integer,
+    school_name character varying(100) COLLATE pg_catalog."default",
+    street character varying(50) COLLATE pg_catalog."default",
+    suburb character varying(30) COLLATE pg_catalog."default",
+    state_ character varying(10) COLLATE pg_catalog."default",
+    postcode integer,
+    postal_street character varying(50) COLLATE pg_catalog."default",
+    postal_suburb character varying(30) COLLATE pg_catalog."default",
+    postal_state character varying(30) COLLATE pg_catalog."default",
+    postal_postcode character varying(30) COLLATE pg_catalog."default",
+    latitude numeric,
+    longitude numeric,
+    phone character varying(30) COLLATE pg_catalog."default",
+    education_region character varying(50) COLLATE pg_catalog."default",
+    broad_classification character varying(50) COLLATE pg_catalog."default",
+    classification_group character varying(50) COLLATE pg_catalog."default"
+)
+
+TABLESPACE pg_default;
+
+ALTER TABLE IF EXISTS public.school_list
+    OWNER to postgres;
