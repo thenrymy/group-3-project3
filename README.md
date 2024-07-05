@@ -30,6 +30,14 @@ Analyse and compare the factors influencing the valuation and purchase decisions
 1. Clone the repository.
 2. Install the required Python libraries.
 3. Ensure you have PostgreSQL installed and running on your system.
+   - Create a database called **real-estate_db**.
+   - Right click on the database just created and choose restore.
+   - Select the backup file as shown below and click on restore.
+
+     ![guide 1](https://github.com/thenrymy/real-estate-analysis/blob/da3d92d3a32e36723fd2cdb9148ab193467f34d3/Images/DatabaseInstall.png)
+   - Check the 3 tables exit and there are data inside.
+
+     ![guide 2](https://github.com/thenrymy/real-estate-analysis/blob/58eb8bde239578fd8e573aeda7c03030c8884f88/Images/DatabaseTables.png)
 
 ### Running the Scripts
 
