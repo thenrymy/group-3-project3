@@ -3,13 +3,25 @@
 ## Overview
 Analyse and compare the factors influencing the valuation and purchase decisions of residential properties in Perth Metropolitan Area.
 
-## Datasets
-- Historical Property Prices https://www.kaggle.com/datasets/syuzai/perth-house-prices/data?select=all_perth_310121.csv
-- Suburb Localities https://catalogue.data.wa.gov.au/dataset/localities
-- LGA Localities https://catalogue.data.wa.gov.au/dataset/local-government-authority-lga-boundaries
-- Crime Statistics https://www.police.wa.gov.au/Crime/CrimeStatistics#/
-- Council Data https://mycouncil.wa.gov.au/Council/CompareAllCouncil
-- School Data https://catalogue.data.wa.gov.au/dataset/western-australian-schools-lists
+### File Structure
+
+```
+real-estate-analysis/
+├── Images/
+│   ├── DatabaseInstall.png
+│   └── DatabaseTables.png
+├── Resources/
+│   ├── Mapping/
+│   │   └── Localities_LGATE_234_WA_GDA2020_Public.geojson
+│   ├── suburb_crime/
+│   │   └── combined_crime_statistics.csv
+│   ├── all_perth_310121.csv
+│   ├── SchoolsListExcel0880.xlsx
+│   └── suburb.xlsx
+├── crime_statistis_scrape.ipynb
+├── index.html
+└── README.md
+```
 
 ### Prerequisites
 
@@ -44,23 +56,10 @@ Analyse and compare the factors influencing the valuation and purchase decisions
 - To perform the data extraction and transformation for Perth Crime Statistics, use 'crime_statistics_scrape.ipynb' and run.
 - Load the CSV files into the PostgreSQL database using the provided SQL schema.
 
-### File Structure
-
-```
-Crowdfunding_ETL/
-├── Resources/
-│   ├── all_perth_310121.csv
-│   ├── SchoolsListExcel0880.xlsx
-│   ├── suburb.xlsx
-│   └── suburb_crime/
-├── Images/
-│   ├── crowdfunding_db_ERD.png
-│   ├── schema_snapshot.png
-│   ├── sql_campaign_output1.png
-│   ├── sql_campaign_output2.png
-│   ├── sql_category_output.png
-│   ├── sql_contacts_output.png
-│   └── sql_subcategory_output.png
-├── crime_statistis_scrape.ipynb
-└── README.md
-```
+## Datasets
+- Historical Property Prices https://www.kaggle.com/datasets/syuzai/perth-house-prices/data?select=all_perth_310121.csv
+- Suburb Localities https://catalogue.data.wa.gov.au/dataset/localities
+- LGA Localities https://catalogue.data.wa.gov.au/dataset/local-government-authority-lga-boundaries
+- Crime Statistics https://www.police.wa.gov.au/Crime/CrimeStatistics#/
+- Council Data https://mycouncil.wa.gov.au/Council/CompareAllCouncil
+- School Data https://catalogue.data.wa.gov.au/dataset/western-australian-schools-lists
