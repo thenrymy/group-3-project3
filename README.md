@@ -51,12 +51,12 @@ real-estate-analysis/
 1. Clone the repository.
 2. Install the required Python libraries.
 3. Ensure you have PostgreSQL installed and running on your system.
-   - Create a database called **real-estate_db**.
+   - Create a database called ```real-estate_db```.
    - Right click on the database just created and choose restore.
-   - Select the backup file **real_estate_db_backup.sql** as shown below and click on restore.
+   - Select the backup file ```real_estate_db_backup.sql``` as shown below and click on restore.
 
      ![guide 1](https://github.com/thenrymy/real-estate-analysis/blob/da3d92d3a32e36723fd2cdb9148ab193467f34d3/Images/DatabaseInstall.png)
-   - Verify the 3 tables **crime_statistics, perth_properties, school_list** are successfully imported.
+   - Verify the 3 tables ```crime_statistics```, ```perth_properties```, ```school_list``` are successfully imported.
 
      ![guide 2](https://github.com/thenrymy/real-estate-analysis/blob/58eb8bde239578fd8e573aeda7c03030c8884f88/Images/DatabaseTables.png)
 
