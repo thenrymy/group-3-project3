@@ -7,6 +7,12 @@ Analyse and compare the factors influencing the valuation and purchase decisions
 
 ```
 real-estate-analysis/
+├── Database/
+│   ├── cleanup_perth_properties_table.sql
+│   ├── create_crime_statistics_table.sql
+│   ├── create_perth_properties_table.sql
+│   ├── create_school_list_table.sql
+│   └── real_estate_db_backup.sql
 ├── Images/
 │   ├── DatabaseInstall.png
 │   └── DatabaseTables.png
@@ -16,9 +22,12 @@ real-estate-analysis/
 │   ├── suburb_crime/
 │   │   └── combined_crime_statistics.csv
 │   ├── all_perth_310121.csv
+│   ├── SchoolsListExcel0880_1.csv
+│   ├── SchoolsListExcel0880.csv
 │   ├── SchoolsListExcel0880.xlsx
 │   └── suburb.xlsx
 ├── crime_statistis_scrape.ipynb
+├── extract_data_from_db.ipynb
 ├── index.html
 └── README.md
 ```
