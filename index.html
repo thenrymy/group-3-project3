@@ -22,15 +22,42 @@
       crossorigin=""
     />
 
+    <!-- FontAwesome for icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
     <!-- leaflet-choropleth JavaScript -->
     <script type="text/javascript" src="static/js/choropleth.js"></script>
+
+    <!-- papaparse JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+
+    <!-- heatmap JavaScript -->
+    <script src="https://unpkg.com/leaflet.heat/dist/leaflet-heat.js"></script>
 
     <!-- Our CSS -->
     <link rel="stylesheet" type="text/css" href="static/css/style.css" />
   </head>
   <body>
-    <!-- The div where we'll insert our map -->
-    <div id="map"></div>
+    <div class="container">
+      <header>
+        <h1>Real Estate Analysis</h1>
+        <p class="description">
+          We aim to explore property data and trends in the Perth Metro Area
+          using a freely available dataset from Kaggle. This dataset encompasses
+          property sales data from 1990 to 2020. Please note that the data may
+          have some biases as it was scraped by a Kaggle user from a third-party
+          website. For more accurate predictions, we recommend purchasing data
+          directly from Landgate.
+        </p>
+      </header>
+
+      <div id="map"></div>
+    </div>
 
     <!-- Our JavaScript -->
     <script type="text/javascript" src="static/js/metroSuburbs.js"></script>
