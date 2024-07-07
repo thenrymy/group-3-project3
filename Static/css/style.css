@@ -46,3 +46,63 @@ html {
 h1 {
   text-align: center;
 }
+
+/* Search Panel creation*/
+.search-panel {
+  background: white;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Container styling */
+.container {
+  margin: 0 auto;
+  max-width: 1200px; /* Adjust as needed */
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#map {
+  height: 70vh; /* Adjust height as needed */
+  width: 100%;
+}
+
+/* Description styling */
+.description {
+  text-align: left;
+  margin: 0 auto;
+  max-width: 100%; /* Adjust as needed */
+}
+
+.search-box {
+  padding: 10px;
+  background: white;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+.search-box input {
+  width: 200px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+.suggestions {
+  border: 1px solid #ccc;
+  border-top: none;
+  background: white;
+  position: absolute;
+  width: 200px;
+  z-index: 1001;
+}
+.suggestions li {
+  padding: 5px;
+  cursor: pointer;
+}
+.suggestions li:hover {
+  background: #eee;
+}
