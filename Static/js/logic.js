@@ -16,6 +16,7 @@ let layers = {
   SUBURB_BOUNDARIES: new L.LayerGroup(),
   PROPERTY_PRICE: new L.LayerGroup(),
   CRIME_RATE: new L.LayerGroup(),
+  SCHOOL_MARKERS: new L.LayerGroup(),
 };
 
 // Create the map object and set default layers
@@ -48,6 +49,7 @@ let overlays = {
   "Suburb Boundaries": layers.SUBURB_BOUNDARIES,
   "Average Property Price": layers.PROPERTY_PRICE,
   "Average Crime Rate": layers.CRIME_RATE,
+  "Secondary School": layers.SCHOOL_MARKERS,
 };
 
 // Create a control for the layers and add it to the map
@@ -72,9 +74,9 @@ homeButton.onAdd = function (map) {
   div.title = "Home";
   div.onclick = function () {
     map.setView(perthCoords, mapZoomLevel);
-    // Remove all markers
+    // Remove all markers and circle markers
     map.eachLayer(function (layer) {
-      if (layer instanceof L.Marker) {
+      if (layer instanceof L.Marker || layer instanceof L.CircleMarker) {
         map.removeLayer(layer);
       }
     });
@@ -314,6 +316,38 @@ Papa.parse(crimeDataUrl, {
       });
 
       crimeLayer.addData(data).addTo(layers.CRIME_RATE);
+    });
+  },
+});
+
+// Fetch school data and create the corresponding layer
+let schoolDataUrl =
+  "https://raw.githubusercontent.com/thenrymy/real-estate-analysis/main/Resources/schoolRank.csv";
+
+Papa.parse(schoolDataUrl, {
+  download: true,
+  header: true,
+  complete: function (results) {
+    let schoolData = results.data;
+    console.log("School data loaded:", schoolData); // Debugging statement
+
+    schoolData.forEach((school) => {
+      let lat = parseFloat(school.latitude);
+      let lng = parseFloat(school.longitude);
+      if (!isNaN(lat) && !isNaN(lng)) {
+        let color = parseInt(school.rank) <= 10 ? "red" : "blue";
+        let marker = L.circleMarker([lat, lng], {
+          color: color,
+          radius: 8,
+          fillOpacity: 0.8,
+        }).addTo(layers.SCHOOL_MARKERS);
+        marker.bindPopup(
+          "<strong>School Name:</strong> " +
+            school.school +
+            "<br><strong>Rank:</strong> " +
+            school.rank
+        );
+      }
     });
   },
 });
