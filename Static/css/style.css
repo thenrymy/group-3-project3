@@ -75,7 +75,7 @@ header {
 /* Description styling */
 .description {
   text-align: left;
-  margin: 0 auto;
+  margin: 0 auto 20px auto; /* Adjust as needed */
   max-width: 100%; /* Adjust as needed */
 }
 
@@ -105,4 +105,24 @@ header {
 }
 .suggestions li:hover {
   background: #eee;
+}
+
+/* Center the iframe container */
+.iframe-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+/* Style the iframe */
+.iframe-container iframe {
+  width: 80%; /* Adjust width as needed */
+  height: 800px; /* Reduced height */
+  border: none;
+}
+
+/* Divider styling */
+.divider {
+  height: 2px;
+  background-color: #ccc;
+  margin: 20px 0;
 }
