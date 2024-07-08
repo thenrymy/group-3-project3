@@ -86,7 +86,7 @@ header {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 .search-box input {
-  width: 200px;
+  width: 150px;
   padding: 5px;
   border: 1px solid #ccc;
   border-radius: 3px;

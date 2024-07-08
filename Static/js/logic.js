@@ -15,6 +15,7 @@ let basemap = L.tileLayer(
 let layers = {
   SUBURB_BOUNDARIES: new L.LayerGroup(),
   PROPERTY_PRICE: new L.LayerGroup(),
+  CRIME_RATE: new L.LayerGroup(),
 };
 
 // Create the map object and set default layers
@@ -46,6 +47,7 @@ searchBox.addTo(map);
 let overlays = {
   "Suburb Boundaries": layers.SUBURB_BOUNDARIES,
   "Average Property Price": layers.PROPERTY_PRICE,
+  "Average Crime Rate": layers.CRIME_RATE,
 };
 
 // Create a control for the layers and add it to the map
@@ -70,6 +72,12 @@ homeButton.onAdd = function (map) {
   div.title = "Home";
   div.onclick = function () {
     map.setView(perthCoords, mapZoomLevel);
+    // Remove all markers
+    map.eachLayer(function (layer) {
+      if (layer instanceof L.Marker) {
+        map.removeLayer(layer);
+      }
+    });
   };
   return div;
 };
@@ -128,13 +136,22 @@ map.on("overlayadd", function (eventLayer) {
       limits.map((limit) => "$" + limit.toLocaleString()),
       colors
     );
+  } else if (eventLayer.name === "Average Crime Rate") {
+    let limits = [0, 600, 1200, 1800, 2400, 3000, 3600, 4200];
+    let colors = limits.map(getColor2);
+    updateLegend(
+      "Average Crime Rate",
+      limits.map((limit) => limit.toLocaleString()),
+      colors
+    );
   }
 });
 
 map.on("overlayremove", function (eventLayer) {
   if (
     eventLayer.name === "Suburb Boundaries" ||
-    eventLayer.name === "Average Property Price"
+    eventLayer.name === "Average Property Price" ||
+    eventLayer.name === "Average Crime Rate"
   ) {
     map.removeControl(legend);
   }
@@ -258,6 +275,49 @@ Papa.parse(priceDataUrl, {
   },
 });
 
+// Fetch crime data and create the corresponding layer
+let crimeDataUrl =
+  "https://raw.githubusercontent.com/thenrymy/real-estate-analysis/b20ef5b09af0318dc6095d4dc71d07026661b9ea/Resources/suburb_crime/crime_mean.csv";
+
+Papa.parse(crimeDataUrl, {
+  download: true,
+  header: true,
+  complete: function (results) {
+    let crimeData = results.data;
+    console.log("Crime data loaded:", crimeData); // Debugging statement
+
+    let crimeLayer = L.geoJSON(null, {
+      style: function (feature) {
+        let crime = getCrimeForSuburb(feature.properties.name, crimeData);
+        return {
+          fillColor: getColor2(crime),
+          weight: 1,
+          opacity: 1,
+          color: "white",
+          fillOpacity: 0.8,
+        };
+      },
+      onEachFeature: function (feature, layer) {
+        let crime = getCrimeForSuburb(feature.properties.name, crimeData);
+        layer.bindPopup(
+          "<strong>" +
+            feature.properties.name +
+            "</strong><br>Average crime: " +
+            crime.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+        );
+      },
+    });
+
+    d3.json(geoData).then(function (data) {
+      data.features = data.features.filter((feature) => {
+        return metroSuburbs.includes(feature.properties.name);
+      });
+
+      crimeLayer.addData(data).addTo(layers.CRIME_RATE);
+    });
+  },
+});
+
 // Helper function to zoom to a suburb and add property markers
 function zoomToSuburb(suburb, data) {
   // Remove existing markers
@@ -325,6 +385,41 @@ function getColor(price) {
     : price > 500000
     ? "#FFD700" // Gold
     : price > 250000
+    ? "#ADFF2F" // Green Yellow
+    : "#7FFF00"; // Chartreuse
+}
+
+// Helper function to get the mean crime rate for a suburb
+function getCrimeForSuburb(suburb, data) {
+  if (!suburb) return 0;
+
+  let suburbData = data.find(
+    (d) =>
+      d.suburb && d.suburb.trim().toLowerCase() === suburb.trim().toLowerCase()
+  );
+
+  if (!suburbData) {
+    return 0;
+  }
+
+  return parseFloat(suburbData.mean_crime_rate || 0);
+}
+
+// Helper function to get the color based on crime
+function getColor2(crime) {
+  return crime > 4200
+    ? "#4B000F" // Dark Maroon
+    : crime > 3600
+    ? "#7F000F" // Dark Red
+    : crime > 3000
+    ? "#B22222" // Firebrick
+    : crime > 2400
+    ? "#FF4500" // Orange Red
+    : crime > 1800
+    ? "#FF8C00" // Dark Orange
+    : crime > 1200
+    ? "#FFD700" // Gold
+    : crime > 600
     ? "#ADFF2F" // Green Yellow
     : "#7FFF00"; // Chartreuse
 }
