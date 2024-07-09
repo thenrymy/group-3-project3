@@ -31,6 +31,26 @@ real-estate-analysis/
 ├── index.html
 └── README.md
 ```
+## ****Database****
+
+Data is stored in and extracted from PostgreSQL.
+
+**Data Extraction:**
+ - Data is extracted from csv and Excel files downloaded from freely available sources from the web.  Where CSV or Excel was not available web scraping is done using python. 
+ - Extracted data undergoes initial review and cleansing to remove irrelevant data.
+
+**Data Transformation:**
+ - Extracted data undergoes cleansing and transformation to remove duplicates, correct errors and eliminate redundant data.
+ - Transformation rules are applied using SQL queries.
+ 
+**Data Loading:**
+ - A PostgreSQL database with relevant tables to house the data is built.
+ - Transformed data is imported into the PostgreSQL database tables.
+ - SQL Script required to validate imported data and update to resolve data types and null issues. 
+ 
+**Connection to Python:**
+ - psycopg2-binary package is installed to allow using SqlAlchemy to create connection between PostgreSQL and Python. 
+ - This allows the tables to be read and stored in DataFrames so that visualisation can be created with Python.
 
 ### Prerequisites
 
