@@ -115,7 +115,7 @@ header {
 }
 /* Style the iframe */
 .iframe-container iframe {
-  width: 80%; /* Adjust width as needed */
+  width: 90%; /* Adjust width as needed */
   height: 800px; /* Reduced height */
   border: none;
 }
