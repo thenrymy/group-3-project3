@@ -103,6 +103,7 @@ Data is stored in and extracted from PostgreSQL.
 
 - To perform the data extraction and transformation for Perth Crime Statistics, use 'crime_statistics_scrape.ipynb' and run.
 - Load the CSV files into the PostgreSQL database using the provided SQL schema.
+- The index.html loads the scripts from `Static` folder to output the webpage.
 
 ## Datasets
 - Historical Property Prices https://www.kaggle.com/datasets/syuzai/perth-house-prices/data?select=all_perth_310121.csv
