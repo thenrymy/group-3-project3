@@ -1,9 +1,9 @@
-# Real Estate Valuation and Purchasing Factors in Perth Metro Area
+# Perth Metro Area Real Estate Analysis
 
 ## Overview
 Analyse and compare the factors influencing the valuation and purchase decisions of residential properties in Perth Metropolitan Area.
 
-### File Structure
+## File Structure
 
 ```
 real-estate-analysis/
@@ -15,20 +15,30 @@ real-estate-analysis/
 │   └── real_estate_db_backup.sql
 ├── Images/
 │   ├── DatabaseInstall.png
-│   └── DatabaseTables.png
+│   ├── DatabaseTables.png
+│   ├── Distance_to_nearest_station_per_house_with_regression.png
+│   ├── house_vs_school_rank_barchart.png
+│   ├── price_vs_CBD.png
+│   ├── price_vs_crime_rate.png
+│   ├── price_vs_distance_train.png
+│   └── price_vs_school_rank_scatterplot_with_regression.png
 ├── Resources/
 │   ├── Mapping/
 │   │   └── Localities_LGATE_234_WA_GDA2020_Public.geojson
 │   ├── suburb_crime/
-│   │   └── combined_crime_statistics.csv
+│   │   ├── combined_crime_statistics.csv
+│   │   └──crime_mean.csv
 │   ├── all_perth_310121.csv
 │   ├── SchoolsListExcel0880_1.csv
 │   ├── SchoolsListExcel0880.csv
 │   ├── SchoolsListExcel0880.xlsx
+│   ├── schoolRank.csv
 │   └── suburb.xlsx
+├── Realestate_data_analysis.ipynb
 ├── crime_statistis_scrape.ipynb
 ├── extract_data_from_db.ipynb
 ├── index.html
+├── mean_property_prices.html
 └── README.md
 ```
 ## ****Database****
@@ -52,13 +62,13 @@ Data is stored in and extracted from PostgreSQL.
  - psycopg2-binary package is installed to allow using SqlAlchemy to create connection between PostgreSQL and Python. 
  - This allows the tables to be read and stored in DataFrames so that visualisation can be created with Python.
 
-### Prerequisites
+## Prerequisites
 
 - Python installed on your local machine.
 - PostgreSQL database installed.
 - Required Python libraries: selenium, time, pandas, numpy
 
-### Tools and Technologies
+## Tools and Technologies
 
 - Pandas for data manipulation and transformation.
 - PostgreSQL for database management.
@@ -66,7 +76,7 @@ Data is stored in and extracted from PostgreSQL.
 - Time for timer delay
 - Numpy for 0 to NaN convertion
 
-### Installation
+## Installation
 
 1. Clone the repository.
 2. Install the required Python libraries.
@@ -80,7 +90,7 @@ Data is stored in and extracted from PostgreSQL.
 
      ![guide 2](https://github.com/thenrymy/real-estate-analysis/blob/58eb8bde239578fd8e573aeda7c03030c8884f88/Images/DatabaseTables.png)
 
-### Running the Scripts
+## Running the Scripts
 
 - To perform the data extraction and transformation for Perth Crime Statistics, use 'crime_statistics_scrape.ipynb' and run.
 - Load the CSV files into the PostgreSQL database using the provided SQL schema.
