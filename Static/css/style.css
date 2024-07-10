@@ -120,6 +120,12 @@ header {
   border: none;
 }
 
+.iframe-container_2 iframe {
+  width: 100%; /* Adjust width as needed */
+  height: 800px; /* Reduced height */
+  border: none;
+}
+
 /* Divider styling */
 .divider {
   height: 2px;
