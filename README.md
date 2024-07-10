@@ -34,6 +34,15 @@ real-estate-analysis/
 │   ├── SchoolsListExcel0880.xlsx
 │   ├── schoolRank.csv
 │   └── suburb.xlsx
+├── Static/
+│   ├── Data/
+│   │   └── suburbs.txt
+│   ├── css/
+│   │   └── style.css
+│   └── js/
+│   │   ├── choropleth.js
+│   │   ├── logic.js
+│   │   └── metroSuburbs.js
 ├── Realestate_data_analysis.ipynb
 ├── crime_statistis_scrape.ipynb
 ├── extract_data_from_db.ipynb
