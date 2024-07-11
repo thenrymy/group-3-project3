@@ -43,6 +43,7 @@ real-estate-analysis/
 │       ├── choropleth.js
 │       ├── logic.js
 │       └── metroSuburbs.js
+├── Group3Project3Presentation.pdf
 ├── Realestate_data_analysis.ipynb
 ├── crime_statistis_scrape.ipynb
 ├── extract_data_from_db.ipynb
