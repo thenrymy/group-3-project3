@@ -105,7 +105,7 @@ Data is stored in and extracted from PostgreSQL.
 - To perform the data extraction and transformation for Perth Crime Statistics, use 'crime_statistics_scrape.ipynb' and run.
 - Load the CSV files into the PostgreSQL database using the provided SQL schema.
 - Extract_data_from_db.ipynb - This Jupyter Notebook is created to validate and understand how we can do live interrogation of PostgresSQL database from Python using the psycopg2-binary package together with SQLAlchemy. ​The psycopg2-binary driver is installed for this connection. ​This allows the tables to be read using SQL statements and stored in DataFrames. The code generated is used in the Realestate_data_analysis.ipynb for analysis.
-- The index.html loads the scripts from `Static` folder to output the webpage.
+- The index.html loads the scripts from `Static` folder to output the webpage. `Please clone the repository to your local computer and load the index.html file to display the webpage`
 
 ## Datasets
 - Historical Property Prices https://www.kaggle.com/datasets/syuzai/perth-house-prices/data?select=all_perth_310121.csv
